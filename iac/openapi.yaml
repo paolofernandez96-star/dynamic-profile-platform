@@ -1,0 +1,35 @@
+# iac/openapi.yaml
+swagger: '2.0'
+info:
+  title: Profile Service API
+  description: API for the Dynamic Profile Platform
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /profiles/{slug}:
+    get:
+      summary: Get a user profile by slug
+      operationId: getProfile
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          type: string
+      x-google-backend:
+        address: https://profile-service-oxb2txw6ia-uc.a.run.app # Your Cloud Run URL
+      security:
+        - api_key: []
+      # THIS BLOCK WAS MISSING
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"

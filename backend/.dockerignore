@@ -1,0 +1,10 @@
+# ====================================================
+# FILE: backend/.dockerignore
+# This file tells Docker which files and folders to ignore during the build.
+# This speeds up the build process and keeps the image clean.
+# ====================================================
+
+.git
+.vscode
+iac/
+*.md
